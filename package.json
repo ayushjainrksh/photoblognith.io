@@ -1,0 +1,17 @@
+{
+  "name": "photoblognith",
+  "version": "1.0.0",
+  "description": "A photo blog for students of NIT Hamirpur",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ayush Jain",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.5"
+  }
+}
