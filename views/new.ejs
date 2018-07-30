@@ -2,14 +2,14 @@
 
 <h1>Add a new Photo</h1>
 
-<form action="/blogs" method="POST">
+<form action="/blogs" method="POST" enctype="multipart/form-data">
 	<label>
 		Title:
     	<input type="text" name="title">
 	</label>
 	<label>
-		Image url:
-    	<input type="text" name="image">		
+		Upload image:
+    	<input type="file" name="uploaded">		
 	</label>
 
 	<button>Submit</button>
