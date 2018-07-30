@@ -57,9 +57,7 @@ app.post("/blogs", upload.single("uploaded"), function(req, res){
 	};
 	Blog.create({
 	        title : req.body.title,
-	        // image : req.body.image,
 		    image : req.file.path,
-	        // image : data,
 	        date  : Date.now()
 	    }, function(err, foundBlog){
 	    	if(err)
@@ -74,7 +72,6 @@ app.post("/blogs", upload.single("uploaded"), function(req, res){
 
 //Show Route
 app.get("/blogs/:id", function(req, res){
-     // res.send("Hello");
     Blog.findById(req.params.id, function(err,foundBlog){
         if(err)
         	console.log(err);
