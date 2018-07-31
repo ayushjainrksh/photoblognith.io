@@ -5,7 +5,7 @@
        <h4><%=blog.title%></h4>
        <% console.log(blog.image) %>
        <p><img src="<%=blog.image.substring(6)%>"></p>
-       <p><%=Date(blog.date).toString()%></p>
+       <p><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></p>
        <a href="/blogs/<%=blog._id%>">Show</a>
     <% }); %>
 
