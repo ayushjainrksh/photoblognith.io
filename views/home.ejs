@@ -3,7 +3,8 @@
     <h1>Welcome to NITH Photo Blog</h1>
     <% blogs.forEach(function(blog){ %>
        <h4><%=blog.title%></h4>
-       <p><img src="<%=blog.image%>"></p>
+       <% console.log(blog.image) %>
+       <p><img src="<%=blog.image.substring(6)%>"></p>
        <p><%=Date(blog.date).toString()%></p>
        <a href="/blogs/<%=blog._id%>">Show</a>
     <% }); %>
