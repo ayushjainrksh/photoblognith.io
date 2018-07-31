@@ -12,10 +12,10 @@ app.use(express.static("assets"));
 app.use(bodyParser.urlencoded({extended : true}));
 mongoose.connect("mongodb://localhost/blogs_db");
 
+//Models
 var blogSchema = new mongoose.Schema({
 	    title : String,
-	    image : String,
-	    date  : Number
+	    image : String
 });
 
 var Blog = mongoose.model("Blog",blogSchema);
@@ -57,8 +57,7 @@ app.post("/blogs", upload.single("uploaded"), function(req, res){
 	};
 	Blog.create({
 	        title : req.body.title,
-		    image : req.file.path,
-	        date  : Date.now()
+		    image : req.file.path
 	    }, function(err, foundBlog){
 	    	if(err)
 	    		console.log(err);
