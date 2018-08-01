@@ -6,11 +6,19 @@ var express    = require("express"),
     multer     = require("multer"),
     fs         = require("fs");
 
+var passport = require("passpot"),
+    localStrategy = require("passport-local"),
+    passportLocalMongoose = require("passport-local-mongoose");
 
 app.set("view engine","ejs");
 app.use(express.static("assets"));
 app.use(bodyParser.urlencoded({extended : true}));
 mongoose.connect("mongodb://localhost/blogs_db");
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser();
+passport.deserializeUser();
 
 //Models
 var blogSchema = new mongoose.Schema({
@@ -25,7 +33,7 @@ var storage = multer.diskStorage({
 	destination : "assets/uploads/",
 	filename    : function(req, file, cb){
         cb(null , file.fieldname + "-" + Date.now() + ".jpg");
-	}
+	}w
 });
 
 var upload = multer({storage : storage});
