@@ -1,6 +1,9 @@
 <% include partials/header%>
 
     <h1>Welcome to NITH Photo Blog</h1>
+    <form action="/logout" method="POST">
+    	<button>Submit</button>
+    </form>
     <a href="/blogs/new">Add new pic</a>
     <% blogs.forEach(function(blog){ %>
        <h4><%=blog.title%></h4>
