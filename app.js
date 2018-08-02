@@ -15,6 +15,16 @@ app.use(express.static("assets"));
 app.use(bodyParser.urlencoded({extended : true}));
 mongoose.connect("mongodb://localhost/blogs_db");
 
+//User Model
+var userSchema = new mongoose.Schema({
+	username : String,
+	password : String,
+});
+
+userSchema.plugin(passportLocalMongoose);
+
+var User = mongoose.model("User", userSchema);
+
 app.use(require("express-session")({
     secret : "I am AJ",
     resave : false,
@@ -34,6 +44,8 @@ var blogSchema = new mongoose.Schema({
 });
 
 var Blog = mongoose.model("Blog",blogSchema);
+
+
 
 //Creating storage location for images
 var storage = multer.diskStorage({
@@ -99,4 +111,28 @@ app.listen(PORT, function(err){
        console.log(err);
    else
        console.log("Server started...");
+});
+
+//AUTH ROUTES
+app.get("/register", function(req, res){
+   res.render("register");
+}); 
+
+app.post("/register", function(req, res){
+	var username = req.body.username;
+	User.register(username, req.body.password, function(err, newUser){
+		if(err)
+			console.log(err);
+        else
+        {
+        	newUser.authenticate(username , req.body.password, function(err, result){
+         	    if(err)
+         	     	 console.log(err);
+                else
+                {
+                	res.send(username);
+                }
+            });
+        }
+	});
 });
