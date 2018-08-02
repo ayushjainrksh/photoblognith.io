@@ -106,6 +106,30 @@ app.get("/blogs/:id", function(req, res){
     });
 });
 
+//AUTH ROUTES
+app.get("/register", function(req, res){
+   res.render("register");
+}); 
+
+app.post("/register", function(req, res){
+	var user = new User({username : req.body.username});
+	User.register(user, req.body.password, function(err, newUser){
+		if(err)
+			console.log(err);
+        else
+        {
+        	passport.authenticate("local")(req, res, function(){
+         	    if(err)
+         	     	 console.log(err);
+                else
+                {
+                	res.send("Registered");
+                }
+            });
+        }
+	});
+});
+
 app.listen(PORT, function(err){
    if(err)
        console.log(err);
@@ -113,26 +137,3 @@ app.listen(PORT, function(err){
        console.log("Server started...");
 });
 
-//AUTH ROUTES
-app.get("/register", function(req, res){
-   res.render("register");
-}); 
-
-app.post("/register", function(req, res){
-	var username = req.body.username;
-	User.register(username, req.body.password, function(err, newUser){
-		if(err)
-			console.log(err);
-        else
-        {
-        	newUser.authenticate(username , req.body.password, function(err, result){
-         	    if(err)
-         	     	 console.log(err);
-                else
-                {
-                	res.send(username);
-                }
-            });
-        }
-	});
-});
