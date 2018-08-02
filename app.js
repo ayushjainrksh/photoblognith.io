@@ -15,6 +15,17 @@ app.use(express.static("assets"));
 app.use(bodyParser.urlencoded({extended : true}));
 mongoose.connect("mongodb://localhost/blogs_db");
 
+//=========
+// MODELS
+//=========
+//Blog Model
+var blogSchema = new mongoose.Schema({
+	    title : String,
+	    image : String
+});
+
+var Blog = mongoose.model("Blog",blogSchema);
+
 //User Model
 var userSchema = new mongoose.Schema({
 	username : String,
@@ -37,13 +48,11 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//Models
-var blogSchema = new mongoose.Schema({
-	    title : String,
-	    image : String
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
 });
 
-var Blog = mongoose.model("Blog",blogSchema);
 
 
 
@@ -139,10 +148,11 @@ app.post("/login", passport.authenticate("local",{
          failureRedirect : "/login"
     }));
 
-app.post("/logout", function(req, res){
+app.get("/logout", function(req, res){
     req.logout();
-    res.redirect("/");
+    res.redirect("/blogs");
 });
+
 
 app.listen(PORT, function(err){
    if(err)
