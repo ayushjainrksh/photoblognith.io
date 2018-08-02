@@ -123,12 +123,21 @@ app.post("/register", function(req, res){
          	     	 console.log(err);
                 else
                 {
-                	res.send("Registered");
+                	res.redirect("/blogs");
                 }
             });
         }
 	});
 });
+
+app.get("/login", function(req, res){
+	res.render("login");
+});
+
+app.post("/login", passport.authenticate("local",{
+         successRedirect : "/blogs",
+         failureRedirect : "/login"
+    }));
 
 app.listen(PORT, function(err){
    if(err)
