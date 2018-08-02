@@ -139,6 +139,11 @@ app.post("/login", passport.authenticate("local",{
          failureRedirect : "/login"
     }));
 
+app.post("/logout", function(req, res){
+    req.logout();
+    res.redirect("/");
+});
+
 app.listen(PORT, function(err){
    if(err)
        console.log(err);
