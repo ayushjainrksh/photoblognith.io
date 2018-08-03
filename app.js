@@ -4,7 +4,8 @@ var express    = require("express"),
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
     multer     = require("multer"),
-    fs         = require("fs");
+    fs         = require("fs"),
+    methodOverride = require("method-override");
 
 var passport = require("passport"),
     localStrategy = require("passport-local"),
@@ -13,6 +14,7 @@ var passport = require("passport"),
 app.set("view engine","ejs");
 app.use(express.static("assets"));
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(methodOverride("_method"));
 mongoose.connect("mongodb://localhost/blogs_db");
 
 //=========
@@ -118,15 +120,18 @@ app.get("/blogs/:id", function(req, res){
 });
 
 // Edit Route
-// app.get("/blogs/:id/edit", function(req, res){
-//     Blog.findById(req.params.id, function(err, foundBlog){
-//         res.render("edit"); 
-//     });
-// });
+app.get("/blogs/:id/edit", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err)
+        	console.log(err);
+        else
+            res.render("edit", {blog:foundBlog}); 
+    });
+});
 
-// app.post("/blogs/:id", function(req, res){
+app.post("/blogs/:id", function(req, res){
 
-// });
+});
 
 //AUTH ROUTES
 app.get("/register", function(req, res){
