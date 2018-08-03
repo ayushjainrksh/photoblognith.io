@@ -18,6 +18,7 @@ mongoose.connect("mongodb://localhost/blogs_db");
 //=========
 // MODELS
 //=========
+
 //Blog Model
 var blogSchema = new mongoose.Schema({
 	    title : String,
@@ -35,6 +36,7 @@ var userSchema = new mongoose.Schema({
 userSchema.plugin(passportLocalMongoose);
 
 var User = mongoose.model("User", userSchema);
+
 
 app.use(require("express-session")({
     secret : "I am AJ",
@@ -114,6 +116,17 @@ app.get("/blogs/:id", function(req, res){
            res.render("view", {blog : foundBlog});
     });
 });
+
+// Edit Route
+// app.get("/blogs/:id/edit", function(req, res){
+//     Blog.findById(req.params.id, function(err, foundBlog){
+//         res.render("edit"); 
+//     });
+// });
+
+// app.post("/blogs/:id", function(req, res){
+
+// });
 
 //AUTH ROUTES
 app.get("/register", function(req, res){
