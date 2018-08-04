@@ -91,10 +91,6 @@ app.get("/blogs/new", function(req, res){
 });
 
 app.post("/blogs", upload.single("uploaded"), function(req, res){
-	// let data = {
-	// 	image : req.file.path
-	// };
-	// console.log(req.body.blog);
 	Blog.create({
 	        title : req.body.title,
 		    image : req.file.path
@@ -165,7 +161,6 @@ app.delete("/blogs/:id/delete", function(req, res){
 				if(err)
 					console.log(err);
 			});
-			console.log("Deleted");
 			res.redirect("/blogs");
 		}
 	});
