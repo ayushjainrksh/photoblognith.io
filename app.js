@@ -130,31 +130,46 @@ app.get("/blogs/:id/edit", function(req, res){
 });
 
 app.put("/blogs/:id", upload.single("uploaded"), function(req, res){
-	    Blog.findById(req.params.id, function(err, foundBlog){
-	        fs.unlink(foundBlog.image, function(err){
-                if(err)
-                   console.log(err);
-                else 
-                {
-			       	var title = req.body.title;
-				    var image = req.file.path;
-				    var blog = {
-				    	title : title,
-				    	image : image
-				    };
-				    console.log(blog);
-			        Blog.findByIdAndUpdate(req.params.id, blog, function(err, updatedBlog){
-				        if(err)
-				        	res.redirect("/blogs");
-				        else{
-				        	res.redirect("/blogs/"+req.params.id);
-			            }
-				    });
-                }
-	        });
-	    }); 
+    Blog.findById(req.params.id, function(err, foundBlog){
+        fs.unlink(foundBlog.image, function(err){
+            if(err)
+               console.log(err);
+            else 
+            {
+		       	var title = req.body.title;
+			    var image = req.file.path;
+			    var blog = {
+			    	title : title,
+			    	image : image
+			    };
+			    console.log(blog);
+		        Blog.findByIdAndUpdate(req.params.id, blog, function(err, updatedBlog){
+			        if(err)
+			        	res.redirect("/blogs");
+			        else{
+			        	res.redirect("/blogs/"+req.params.id);
+		            }
+			    });
+            }
+        });
+    }); 
 });
 
+//Destroy Route
+app.delete("/blogs/:id/delete", function(req, res){
+	Blog.findByIdAndRemove(req.params.id, function(err, foundBlog){
+		if(err)
+			console.log(err);
+		else{
+			fs.unlink(foundBlog.image, function(err){
+				if(err)
+					console.log(err);
+			});
+			console.log("Deleted");
+			res.redirect("/blogs");
+		}
+	});
+});
 
 //AUTH ROUTES
 app.get("/register", function(req, res){
