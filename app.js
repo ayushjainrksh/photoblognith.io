@@ -130,20 +130,29 @@ app.get("/blogs/:id/edit", function(req, res){
 });
 
 app.put("/blogs/:id", upload.single("uploaded"), function(req, res){
-	    var title = req.body.title;
-	    var image = req.file.path;
-	    var blog = {
-	    	title : title,
-	    	image : image
-	    };
-	    console.log(blog);
-        // Blog.findByIdAndUpdate(req.params.id, blog, function(err, updatedBlog){
-        // if(err)
-        // 	res.redirect("/blogs");
-        // else{
-        // 	res.redirect("/blogs/"+req.params.id);
-        // }
-    // });
+	    Blog.findById(req.params.id, function(err, foundBlog){
+	        fs.unlink(foundBlog.image, function(err){
+                if(err)
+                   console.log(err);
+                else 
+                {
+			       	var title = req.body.title;
+				    var image = req.file.path;
+				    var blog = {
+				    	title : title,
+				    	image : image
+				    };
+				    console.log(blog);
+			        Blog.findByIdAndUpdate(req.params.id, blog, function(err, updatedBlog){
+				        if(err)
+				        	res.redirect("/blogs");
+				        else{
+				        	res.redirect("/blogs/"+req.params.id);
+			            }
+				    });
+                }
+	        });
+	    }); 
 });
 
 
