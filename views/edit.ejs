@@ -5,11 +5,11 @@
 <form action="/blogs/<%=blog._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
 	<label>
 		Title:
-    	<input type="text" name="title">
+    	<input type="text" name="title" value="<%=blog.title%>">
 	</label>
 	<label>
 		Upload image:
-    	<input type="file" name="uploaded">		
+    	<input type="file" name="uploaded" value="<%=blog.image%>">		
 	</label>
 
 	<button>Submit</button>

@@ -59,7 +59,6 @@ app.use(function(req, res, next){
 
 
 
-
 //Creating storage location for images
 var storage = multer.diskStorage({
 	destination : "assets/uploads/",
@@ -92,9 +91,10 @@ app.get("/blogs/new", function(req, res){
 });
 
 app.post("/blogs", upload.single("uploaded"), function(req, res){
-	let data = {
-		image : req.file.path
-	};
+	// let data = {
+	// 	image : req.file.path
+	// };
+	// console.log(req.body.blog);
 	Blog.create({
 	        title : req.body.title,
 		    image : req.file.path
@@ -123,15 +123,29 @@ app.get("/blogs/:id", function(req, res){
 app.get("/blogs/:id/edit", function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
         if(err)
-        	console.log(err);
+        	res.redirect("/blogs");
         else
             res.render("edit", {blog:foundBlog}); 
     });
 });
 
-app.post("/blogs/:id", function(req, res){
-
+app.put("/blogs/:id", upload.single("uploaded"), function(req, res){
+	    var title = req.body.title;
+	    var image = req.file.path;
+	    var blog = {
+	    	title : title,
+	    	image : image
+	    };
+	    console.log(blog);
+        // Blog.findByIdAndUpdate(req.params.id, blog, function(err, updatedBlog){
+        // if(err)
+        // 	res.redirect("/blogs");
+        // else{
+        // 	res.redirect("/blogs/"+req.params.id);
+        // }
+    // });
 });
+
 
 //AUTH ROUTES
 app.get("/register", function(req, res){
