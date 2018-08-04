@@ -86,11 +86,11 @@ app.get("/blogs", function(req, res){
 	});
 });
 
-app.get("/blogs/new", function(req, res){
+app.get("/blogs/new", isLoggedIn, function(req, res){
 	res.render("new");
 });
 
-app.post("/blogs", upload.single("uploaded"), function(req, res){
+app.post("/blogs", upload.single("uploaded"), isLoggedIn, function(req, res){
 	Blog.create({
 	        title : req.body.title,
 		    image : req.file.path
@@ -204,6 +204,12 @@ app.get("/logout", function(req, res){
     res.redirect("/blogs");
 });
 
+function isLoggedIn(req, res, next){
+	if(req.user)
+		return next();
+	else
+	    res.redirect("/login");
+}
 
 app.listen(PORT, function(err){
    if(err)
