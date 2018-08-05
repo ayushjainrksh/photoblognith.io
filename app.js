@@ -216,6 +216,7 @@ app.get("/logout", function(req, res){
     res.redirect("/blogs");
 });
 
+//Auth functions
 function isLoggedIn(req, res, next){
 	if(req.user)
 		return next();
