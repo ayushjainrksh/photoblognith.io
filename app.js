@@ -21,14 +21,6 @@ mongoose.connect("mongodb://localhost/blogs_db");
 // MODELS
 //=========
 
-//Blog Model
-var blogSchema = new mongoose.Schema({
-	    title : String,
-	    image : String
-});
-
-var Blog = mongoose.model("Blog",blogSchema);
-
 //User Model
 var userSchema = new mongoose.Schema({
 	username : String,
@@ -38,6 +30,22 @@ var userSchema = new mongoose.Schema({
 userSchema.plugin(passportLocalMongoose);
 
 var User = mongoose.model("User", userSchema);
+
+
+//Blog Model
+var blogSchema = new mongoose.Schema({
+	    title : String,
+	    image : String,
+	    author : {
+	    	id : {
+	    		type : mongoose.Schema.Types.ObjectId,
+	    		rel : "User"
+	    	},
+	    	username : String
+	    }
+});
+
+var Blog = mongoose.model("Blog",blogSchema);
 
 
 app.use(require("express-session")({
@@ -93,7 +101,11 @@ app.get("/blogs/new", isLoggedIn, function(req, res){
 app.post("/blogs", upload.single("uploaded"), isLoggedIn, function(req, res){
 	Blog.create({
 	        title : req.body.title,
-		    image : req.file.path
+		    image : req.file.path,
+		    author : {
+		    	id : req.user._id,
+		    	username : req.user.username
+		    }
 	    }, function(err, foundBlog){
 	    	if(err)
 	    		console.log(err);
@@ -217,4 +229,3 @@ app.listen(PORT, function(err){
    else
        console.log("Server started...");
 });
-
