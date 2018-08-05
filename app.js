@@ -128,7 +128,7 @@ app.get("/blogs/:id", function(req, res){
 });
 
 // Edit Route
-app.get("/blogs/:id/edit", function(req, res){
+app.get("/blogs/:id/edit",isAuth, function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
         if(err)
         	res.redirect("/blogs");
@@ -137,7 +137,7 @@ app.get("/blogs/:id/edit", function(req, res){
     });
 });
 
-app.put("/blogs/:id", upload.single("uploaded"), function(req, res){
+app.put("/blogs/:id", upload.single("uploaded"), isAuth, function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
         fs.unlink(foundBlog.image, function(err){
             if(err)
@@ -221,6 +221,30 @@ function isLoggedIn(req, res, next){
 		return next();
 	else
 	    res.redirect("/login");
+}
+
+function isAuth(req, res, next){
+	if(req.isAuthenticated())
+	{
+		Blog.findById(req.params.id, function(err, foundBlog){
+	    	if(err)
+	    	{
+	    		console.log(err);
+	    		res.redirect("/login");
+	    	}
+	    	else
+	    	{
+	    		if(foundBlog.author.id.equals(req.user._id)){
+	    			return next();
+	    		}
+	    		res.redirect("/login");
+	    	}
+		});
+	}
+    else
+    {
+    	res.redirect("/login");
+    }
 }
 
 app.listen(PORT, function(err){
