@@ -164,7 +164,7 @@ app.put("/blogs/:id", upload.single("uploaded"), isAuth, function(req, res){
 });
 
 //Destroy Route
-app.delete("/blogs/:id/delete", function(req, res){
+app.delete("/blogs/:id/delete",isAuth, function(req, res){
 	Blog.findByIdAndRemove(req.params.id, function(err, foundBlog){
 		if(err)
 			console.log(err);
@@ -219,8 +219,7 @@ app.get("/logout", function(req, res){
 function isLoggedIn(req, res, next){
 	if(req.user)
 		return next();
-	else
-	    res.redirect("/login");
+	res.redirect("/login");
 }
 
 function isAuth(req, res, next){
@@ -229,15 +228,14 @@ function isAuth(req, res, next){
 		Blog.findById(req.params.id, function(err, foundBlog){
 	    	if(err)
 	    	{
-	    		console.log(err);
-	    		res.redirect("/login");
+	    		res.redirect("back");
 	    	}
 	    	else
 	    	{
 	    		if(foundBlog.author.id.equals(req.user._id)){
 	    			return next();
 	    		}
-	    		res.redirect("/login");
+	    		res.redirect("back");
 	    	}
 		});
 	}
