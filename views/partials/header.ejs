@@ -19,17 +19,17 @@
 		<div class="text"><a href="#">Popular</a></div>
 		<div class="text"><a href="#">Categories</a></div>
 		<% if(currentUser){%>
-		    <div class="text">
+		    <div class="text right">
+		    	<a href="logout">Logout</a>
+		    </div>
+		    <div class="text right">
 		    	<a href="#">Welcome <%=currentUser.username%></a>
 		    </div>
-		    <div class="text">
-		    	<a href="logout">Logout</a>
-		    </div> 
 	    <% } else { %>  
-	        <div class="text">
+	        <div class="text right">
 	        	<a href="/register">Register</a>
 	        </div>
-	        <div class="text">
+	        <div class="text right">
 	            <a href="/login">Login</a>
 	        </div>
 	    <% } %>

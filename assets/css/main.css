@@ -52,6 +52,9 @@ body{
 	margin:10px;
 	padding:25px;
     background-color:#a1582f;
+    border-top:3px solid black;
+    border-bottom:3px solid black;
+
 }
 
 .text a{
@@ -67,5 +70,13 @@ body{
 }
 
 .text a{
-	margin-left:20px;
+	margin:0 20px;
+}
+
+.right a{
+	float:right;
+}
+
+.text a:hover{
+	color:#ff6200
 }
