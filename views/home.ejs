@@ -1,21 +1,9 @@
 <% include partials/header%>
 
     <!-- <h1>Welcome to NITH Photo Blog</h1> -->
-    <% if(currentUser){%>
-	    <div>
-	    	Welcome <%=currentUser.username%>
-	    	<a href="logout">Logout</a>
-	    </div> 
-    <% } else { %>  
-        <div>
-        	<a href="/register">Register</a>
-            <a href="/login">Login</a>
-        </div>
-    <% } %>
-    <a href="/blogs/new">Add new pic</a>
+    <!-- <a href="/blogs/new">Add new pic</a> -->
     <% blogs.forEach(function(blog){ %>
        <h4><%=blog.title%></h4>
-       <% console.log(blog.image) %>
        <p><img src="<%=blog.image.substring(6)%>"></p>
        <p><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></p>
        <a href="/blogs/<%=blog._id%>">Show</a>

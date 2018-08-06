@@ -6,9 +6,9 @@ body{
 #header{
 	background : #ded9d6;
 	margin:0;
-	padding-top:30px;
+	padding-top:25px;
 	padding-left:20px;
-	padding-bottom:30px;
+	padding-bottom:25px;
 }
 
 #icon{
@@ -24,18 +24,21 @@ body{
 #head1{
 	display:inline-block;
     font-size: 60px;
-    margin:0 auto;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing:-5px;
 }
 
 #head2{
 	display:inline-block;
-	margin:0;
 	font-size: 30px;
+	font-family: 'Open Sans', sans-serif;
+    letter-spacing:-2px;
+
 }
 
 #addIcon{
 	position:relative;
-	left:58%;
+	left:65%;
 	bottom:20px;
 	margin : 0 auto;
 	font-size: 20px;
@@ -43,4 +46,26 @@ body{
 
 #addIcon a{
     color: #000000;
+}
+
+#navbar{
+	margin:10px;
+	padding:25px;
+    background-color:#a1582f;
+}
+
+.text a{
+	float:left;
+	text-decoration: none;
+	color:white;
+	font-size:40px;
+	line-height: 1px;
+	letter-spacing: -4px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;	
+	text-transform: uppercase;
+}
+
+.text a{
+	margin-left:20px;
 }

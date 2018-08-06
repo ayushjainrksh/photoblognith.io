@@ -4,11 +4,33 @@
 	<title>PhotoBlog</title>
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">  
 </head>
 <body>
 	<div id="header">
 		<span id="icon"></span>
 		<span id="head1">NITH</span>
-		<span id="head2">PHOTOBLOG</span>
+		<span id="head2">PHOTO BLOG</span>
 		<span id="addIcon"><a href="/blogs/new"><i class="fas fa-plus"></i></a></span>
+	</div>
+
+	<div id="navbar">
+		<div class="text"><a href="/blogs">Home</a></div>
+		<div class="text"><a href="#">Popular</a></div>
+		<div class="text"><a href="#">Categories</a></div>
+		<% if(currentUser){%>
+		    <div class="text">
+		    	<a href="#">Welcome <%=currentUser.username%></a>
+		    </div>
+		    <div class="text">
+		    	<a href="logout">Logout</a>
+		    </div> 
+	    <% } else { %>  
+	        <div class="text">
+	        	<a href="/register">Register</a>
+	        </div>
+	        <div class="text">
+	            <a href="/login">Login</a>
+	        </div>
+	    <% } %>
 	</div>
