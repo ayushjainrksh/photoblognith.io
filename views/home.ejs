@@ -7,7 +7,7 @@
        <div id="image"><img src="<%=blog.image.substring(6)%>"></div>
        <div id="title"><%=blog.title%></div>
        <div id="date"><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></div>
-       <div><a id="show" href="/blogs/<%=blog._id%>">Show</a></div>
+       <div id="show"><a href="/blogs/<%=blog._id%>">Show</a></div>
     </div>
     <% }); %>
 

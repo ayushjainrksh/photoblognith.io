@@ -95,5 +95,35 @@ body{
 }
 
 #title{
-	/*float:left;*/
+	position:relative;
+	font-size:30px;
+	left:30px;
+	text-transform: uppercase;
+}
+
+#date{
+	position:relative;
+	left:30px;
+	top:50px;
+}
+
+#show{
+	text-decoration:none;
+	position: relative;
+	left:30px;
+	top:100px;
+    
+}
+
+#show a{
+	text-decoration:none;
+	color:#ff5400; 
+	border:2px solid #ff5400;
+	padding:4px 12px;
+	border-radius:30px;
+}
+
+#show a:hover{
+	background:#ff5400;
+	color:white;
 }
