@@ -80,6 +80,17 @@ body{
 .text a:hover{
 	color:#ff6200
 }
+/*
+.text:hover a{
+	width:inherit;
+	text-align: 
+	height:80px;
+	background: black;
+}*/
+
+/*.box{
+	color:#ff6200
+}*/
 
 #display{
 	margin:20px;
