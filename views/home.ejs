@@ -3,10 +3,12 @@
     <!-- <h1>Welcome to NITH Photo Blog</h1> -->
     <!-- <a href="/blogs/new">Add new pic</a> -->
     <% blogs.forEach(function(blog){ %>
-       <h4><%=blog.title%></h4>
-       <p><img src="<%=blog.image.substring(6)%>"></p>
-       <p><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></p>
-       <a href="/blogs/<%=blog._id%>">Show</a>
+    <div id="display">
+       <div id="image"><img src="<%=blog.image.substring(6)%>"></div>
+       <div id="title"><%=blog.title%></div>
+       <div id="date"><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></div>
+       <div><a id="show" href="/blogs/<%=blog._id%>">Show</a></div>
+    </div>
     <% }); %>
 
 <% include partials/footer%>

@@ -80,3 +80,20 @@ body{
 .text a:hover{
 	color:#ff6200
 }
+
+#display{
+	margin:20px;
+	padding:20px;
+	height:183px;    
+	border-top:3px solid black;
+	border-bottom:3px solid black;
+}
+
+#image{
+	float:left;
+	/*box-shadow:5px 10px #4d4d4d;*/
+}
+
+#title{
+	/*float:left;*/
+}
