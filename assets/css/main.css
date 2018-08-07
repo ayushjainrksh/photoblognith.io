@@ -85,13 +85,17 @@ body{
 	margin:20px;
 	padding:20px;
 	height:183px;    
-	border-top:3px solid black;
-	border-bottom:3px solid black;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #image{
 	float:left;
-	/*box-shadow:5px 10px #4d4d4d;*/
+}
+
+#image:hover img{
+    opacity:0.5;
 }
 
 #title{
@@ -103,16 +107,21 @@ body{
 
 #date{
 	position:relative;
-	left:30px;
-	top:50px;
+	left:113px;
+	top:-27px;
+	opacity:0;
+}
+
+
+#image:hover #date{
+	opacity:1;
 }
 
 #show{
 	text-decoration:none;
 	position: relative;
 	left:30px;
-	top:100px;
-    
+	top:90px;
 }
 
 #show a{

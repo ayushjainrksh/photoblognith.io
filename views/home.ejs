@@ -4,9 +4,9 @@
     <!-- <a href="/blogs/new">Add new pic</a> -->
     <% blogs.forEach(function(blog){ %>
     <div id="display">
-       <div id="image"><img src="<%=blog.image.substring(6)%>"></div>
+       <div id="image"><img src="<%=blog.image.substring(6)%>"><div id="date"><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></div></div>
        <div id="title"><%=blog.title%></div>
-       <div id="date"><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></div>
+       
        <div id="show"><a href="/blogs/<%=blog._id%>">Show</a></div>
     </div>
     <% }); %>
