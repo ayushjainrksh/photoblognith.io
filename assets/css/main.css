@@ -2,24 +2,26 @@ body{
 	margin:0;
 }
 
+#icon{
+	font-size:6vw;
+	color:brown;
+	float:left;    
+}
+
  #head1{
     font-size:6vw;
+    width:93%;
+    float:left;
 }
 
 #head2{
 	font-size:3vw;
 }
 
-#icon{
-	font-size:6vw;
-	color:brown;
-    
-}
-
 #addIcon{
-	align-self: center;
-	font-size:6vw;
+	font-size:3vw;
 	float:right;
+	margin-top:3%;
 }
 
 #addIcon a{
