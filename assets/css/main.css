@@ -2,6 +2,10 @@ body{
 	margin:0;
 }
 
+div.jumbotron{
+     margin-bottom:0;
+}
+
 #icon{
 	font-size:6vw;
 	color:brown;
@@ -32,9 +36,22 @@ body{
 	margin-top: 0%;
 	margin-right:15%;
 	float:right;
-	/*width:20vw;*/
-	/*height:3vw;*/
 }
+
+.navbar{
+   margin : 0;
+}
+
+
+.affix {
+      top: 0;
+      width: 100%;
+      z-index: 9999 !important;
+  }
+
+.affix + .container-fluid {
+      padding-top: 70px;
+  }
 
 /*#search form{
 	font-size: 2vw;
@@ -51,15 +68,6 @@ body{
 	
 }*/
 
-
-#search button{
-
-	/*width:18%;*/
-	/*height:100%;*/
-	/*border:1px solid gray;*/
-	/*background: #f9f9f9;*/
-	/*border-radius: 20%;*/
-}
 
 /*#search button i{
 	font-size: 1vw;
