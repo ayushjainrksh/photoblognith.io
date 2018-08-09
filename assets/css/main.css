@@ -2,6 +2,22 @@ body{
 	margin:0;
 }
 
+ #head1{
+    font-size:6vw;
+}
+
+#head2{
+	font-size:3vw;
+}
+
+#addIcon{
+	align-self: center;
+	float:right;
+}
+/*body{
+	margin:0;
+}
+
 
 #header{
 	background : #ded9d6;
@@ -80,17 +96,6 @@ body{
 .text a:hover{
 	color:#ff6200
 }
-/*
-.text:hover a{
-	width:inherit;
-	text-align: 
-	height:80px;
-	background: black;
-}*/
-
-/*.box{
-	color:#ff6200
-}*/
 
 #display{
 	margin:20px;
@@ -160,4 +165,4 @@ body{
 #show a:hover{
 	background:#ff5400;
 	color:white;
-}
+}*/
