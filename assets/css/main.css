@@ -10,11 +10,22 @@ body{
 	font-size:3vw;
 }
 
+#icon{
+	font-size:6vw;
+	color:brown;
+    
+}
+
 #addIcon{
 	align-self: center;
+	font-size:6vw;
 	float:right;
 }
-/*body{
+
+#addIcon a{
+	color:black;
+}
+/*body{w
 	margin:0;
 }
 
