@@ -29,41 +29,42 @@ body{
 }
 
 #search{
-	margin-top: 4%;
+	margin-top: 0%;
 	margin-right:15%;
 	float:right;
-	width:20vw;
-	height:3vw;
+	/*width:20vw;*/
+	/*height:3vw;*/
 }
 
-#search form{
+/*#search form{
 	font-size: 2vw;
 	height:100%;
 	margin: 0;
 	padding:0;
 
-}
+}*/
 
-#search input{
+/*#search input{
 	width:76%;
 	font-size: 2vw;
 	height:100%;
 	
-}
+}*/
 
 
 #search button{
-	width:19%;
-	height:100%;
-	border:none;
-	background: #f9f9f9;
-	border-radius: 20%;
+
+	/*width:18%;*/
+	/*height:100%;*/
+	/*border:1px solid gray;*/
+	/*background: #f9f9f9;*/
+	/*border-radius: 20%;*/
 }
 
-#search button i{
+/*#search button i{
 	font-size: 1vw;
 }
-
+*/
 /*body{w
 	margin:0;
 }
