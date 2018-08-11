@@ -16,7 +16,7 @@ div.jumbotron{
 	float:left;    
 }
 
- #head1{
+#head1{
     font-size:6vw;
     width:93%;
     float:left;
@@ -81,7 +81,6 @@ div.jumbotron{
 
 .collapse{
 	text-transform: uppercase;
-	/*font-size:3vw;*/
 }
 
 #myNavbar{
@@ -123,13 +122,34 @@ div.jumbotron{
 #image img{
 	margin:0;
 	width:100%;
-	height:100%;
-	/*margin:5px;*/
+	height:273px;
+}
+
+.col-sm-7{
+	height:273px;
+}
+
+#content{
+	height:180px;
+}
+
+@media only screen and (max-width: 600px)
+{
+	#image img{
+		margin:0;
+		width:100%;
+		height:180px;
+    }
+    .col-sm-7{
+	    height:180px;
+    }
+	#content{
+        height:100px;
+    }
 }
 
 #image img:hover{
 	opacity:0.5;
-
 }
 
 #title{
@@ -138,15 +158,9 @@ div.jumbotron{
 	text-transform: uppercase;
 }
 
-#content{
-	height:17vw;
-}
 
 #show{
 	text-decoration:none;
-	position:relative;
-	bottom:0;
-	/*float:right;*/
 }
 
 #show a{
