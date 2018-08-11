@@ -60,16 +60,13 @@ div.jumbotron{
 
 .navbar{
 	border:none !important;
-	border-top: 4px solid black !important;
-	border-bottom: 4px solid black !important;
-    /*margin-left:1%;*/
-    /*margin-right:1%;*/
+	/*border-top: 4px solid black !important;*/
+	/*border-bottom: 4px solid black !important;*/
 }
 
 .navbar-inverse{
     /*background: #a1582f !important;*/
     background: #41b3a3 !important;
-
     color: white !important;
 }
 
@@ -87,8 +84,19 @@ div.jumbotron{
 	text-transform: uppercase;
 }
 
-.act{
-	overflow:hidden;
+.navbar-inverse .navbar-nav .act{
+	/*overflow:hidden;*/
+	background: white;
+	/*border-top: 3px solid black;*/
+}
+
+.navbar-inverse .navbar-nav .act > a{
+	color:teal !important;
+
+}
+
+.navbar-inverse .navbar-nav > li > a:hover{
+    color:teal !important;
 }
 
 #display{
