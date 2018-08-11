@@ -7,8 +7,6 @@ div.jumbotron{
      margin-bottom:0;
      padding-top:25px;
      padding-bottom:25px;
-
-
 }
 
 #icon{
@@ -82,6 +80,20 @@ div.jumbotron{
 
 .collapse{
 	text-transform: uppercase;
+	/*font-size:3vw;*/
+}
+
+#myNavbar{
+	border:none;
+}
+
+.navbar-inverse .navbar-toggle{
+	border:none;
+}
+
+.navbar-inverse button.navbar-toggle:hover{
+	/*background-color: none*/
+	background-color: teal !important;
 }
 
 .navbar-inverse .navbar-nav .act{
