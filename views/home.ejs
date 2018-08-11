@@ -2,13 +2,21 @@
 
     <!-- <h1>Welcome to NITH Photo Blog</h1> -->
     <!-- <a href="/blogs/new">Add new pic</a> -->
-    <% blogs.forEach(function(blog){ %>
-    <div id="display">
-       <div id="image"><img src="<%=blog.image.substring(6)%>"><div id="date"><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></div></div>
-       <div id="title"><%=blog.title%></div>
-       
-       <div id="show"><a href="/blogs/<%=blog._id%>">Show</a></div>
+    <div class="container">
+        <% blogs.forEach(function(blog){ %>
+	    <div id="display">
+	       <div class="row">
+	            <div class="col-lg-4" id="image"><img src="<%=blog.image.substring(6)%>"></div>       
+	       	    <div class="col-md-8">
+	       	    	<div id="title"><%=blog.title%></div>
+	       	    	<div id="date"><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></div>
+	                <div id="show"><a href="/blogs/<%=blog._id%>">Show</a></div>    
+	       	    </div>
+
+	       </div>
+	    </div>
+	    <% }); %>	
     </div>
-    <% }); %>
+    
 
 <% include partials/footer%>
