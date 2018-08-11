@@ -1,10 +1,11 @@
 body{
 	margin:0;
-	background-color: #e27d60;
+	/*background-color: #e27d60;*/
 }
 
 div.jumbotron{
      margin-bottom:0;
+     background-color: white;
      padding-top:25px;
      padding-bottom:25px;
 }
@@ -92,17 +93,14 @@ div.jumbotron{
 }
 
 .navbar-inverse button.navbar-toggle:hover{
-	/*background-color: none*/
 	background-color: teal !important;
 }
 
-.navbar-inverse .navbar-nav .act{
-	/*overflow:hidden;*/
-	background: white;
-	/*border-top: 3px solid black;*/
+.act{
+	background: white;         
 }
 
-.navbar-inverse .navbar-nav .act > a{
+.navbar-inverse .navbar-nav .act{
 	color:teal !important;
 
 }
