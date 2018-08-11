@@ -85,24 +85,31 @@ div.jumbotron{
 }
 
 #display{
-	border-top: 1px solid black;
-	width:80%;
+	width:100%;
     margin-bottom:10px;
 }
 
 #image img{
 	width:100%;
 	height:100%;
+	margin:5px;
 }
 
 #title{
+	border-top: 1px solid #e2e2e2;
 	font-size:30px;
 	text-transform: uppercase;
 }
 
+#content{
+	height:16vw;
+}
+
 #show{
 	text-decoration:none;
-	float:right;
+	position:relative;
+	bottom:0;
+	/*float:right;*/
 }
 
 #show a{
@@ -111,6 +118,11 @@ div.jumbotron{
 	border:2px solid #ff5400;
 	padding:4px 12px;
 	border-radius:30px;
+}
+
+#show a:hover{
+	background:#ff5400;
+	color:white;
 }
 
 
