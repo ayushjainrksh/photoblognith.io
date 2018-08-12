@@ -2,24 +2,24 @@
 <html>
 <head>
 	<title>PhotoBlog</title>
+	<!-- Responsive designs -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- CSS file -->
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	
+	<!-- Font awesome icons -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	
+    <!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">  
 	<link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet"> 
 
-
-
-    
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-
-
-
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
     <div class="jumbotron">
@@ -62,56 +62,23 @@
 		      <li><a href="#">Popular</a></li>
 		      <li><a href="#">Categories</a></li>
 		    </ul>
-		    
 		    <ul class="nav navbar-nav navbar-right">
 		    	<% if(currentUser){%>
-				    <li class="text right" style="color:black;">
-				    	<a href="#">Welcome <%=currentUser.username%></a>
-				    </li>
-				    <li class="text right">
-				    	<a href="logout">Logout</a>
-				    </li>
+			    <li class="text right" style="color:black;">
+			    	<a href="#">Welcome <%=currentUser.username%></a>
+			    </li>
+			    <li class="text right">
+			    	<a href="logout">Logout</a>
+			    </li>
 		        <% } else { %>  
-		            <li class="text right">
-			            <a href="/login">Login</a>
-			        </li>
-			        <li class="text right">
-			        	<a href="/register">Register</a>
-			        </li>
+	            <li class="text right">
+		            <a href="/login">Login</a>
+		        </li>
+		        <li class="text right">
+		        	<a href="/register">Register</a>
+		        </li>
 		        <% } %>
 		    </ul>
 		</div> 
 	  </div>
 	</nav>
-
-
-   
-
-
- 	<!-- <div id="header">
-		<span id="icon"></span>
-		<span id="head1">NITH</span>
-		<span id="head2">PHOTO BLOG</span>
-		<span id="addIcon"><a href="/blogs/new"><i class="fas fa-plus"></i></a></span>
-	</div>
-
-	<div id="navbar">
-		<div class="text"><a href="/blogs">Home</a></div>
-		<div class="text"><a href="#">Popular</a></div>
-		<div class="text"><a href="#">Categories</a></div>
-		<% if(currentUser){%>
-		    <div class="text right">
-		    	<a href="logout">Logout</a>
-		    </div>
-		    <div class="text right" style="color:black;">
-		    	<a href="#">Welcome <%=currentUser.username%></a>
-		    </div>
-	    <% } else { %>  
-	        <div class="text right">
-	        	<a href="/register">Register</a>
-	        </div>
-	        <div class="text right">
-	            <a href="/login">Login</a>
-	        </div>
-	    <% } %>
-	</div> -->

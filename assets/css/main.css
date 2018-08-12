@@ -158,6 +158,21 @@ div.jumbotron{
 	text-transform: uppercase;
 }
 
+#date{
+	color:grey;
+	font-size:12px;
+}
+
+#date span{
+	color:black;
+	font-size:15px !important;
+}
+
+#blogUser{
+    text-transform: uppercase;
+    margin-right:5px;
+}
+
 
 #show{
 	text-decoration:none;
