@@ -3,11 +3,12 @@
 <div class="back">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 showBox"><img class="showImg" src="<%=blog.image.substring(6)%>"></div>
+			<div class="col-md-8 showBox"><img id="showImg" src="<%=blog.image.substring(6)%>"></div>
 		    <div class="col-md-4 showBox">
 	            <div id="showTitle"><%=blog.title%></div>
 	            <div id="showDate"><!-- <span>BY <a href="#"><%=blog.author.username%></a></span> --><%=new Date(Number(blog.image.substring(24,37))).toString().substring(4,15).toUpperCase()%></div>
 		        <!-- <div id="date"><%=new Date(Number(blog.image.substring(24,37))).toLocaleString()%></div> -->
+		        <div id="showContent"></div>
 		    </div>
 		</div>
 	</div>
