@@ -36,6 +36,7 @@ var User = mongoose.model("User", userSchema);
 var blogSchema = new mongoose.Schema({
 	    title : String,
 	    image : String,
+	    description : String,
 	    author : {
 	    	id : {
 	    		type : mongoose.Schema.Types.ObjectId,
@@ -102,6 +103,7 @@ app.post("/blogs", upload.single("uploaded"), isLoggedIn, function(req, res){
 	Blog.create({
 	        title : req.body.title,
 		    image : req.file.path,
+		    description : req.body.description,
 		    author : {
 		    	id : req.user._id,
 		    	username : req.user.username
@@ -146,9 +148,11 @@ app.put("/blogs/:id", upload.single("uploaded"), isAuth, function(req, res){
             {
 		       	var title = req.body.title;
 			    var image = req.file.path;
+			    var description = req.body.description;
 			    var blog = {
 			    	title : title,
-			    	image : image
+			    	image : image,
+			    	description : description
 			    };
 			    console.log(blog);
 		        Blog.findByIdAndUpdate(req.params.id, blog, function(err, updatedBlog){
