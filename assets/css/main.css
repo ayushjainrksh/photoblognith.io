@@ -130,7 +130,15 @@ div.jumbotron{
 }
 
 #content{
-	height:180px;
+	height:160px;
+
+	/*width:200px;*/
+	/*display: block;*/
+	overflow: hidden;
+	/*white-space: nowrap;*/
+	white-space: pre-wrap;
+	text-overflow: ellipsis;
+	/*margin-bottom:5px;*/
 }
 
 @media only screen and (max-width: 600px)
@@ -143,8 +151,11 @@ div.jumbotron{
     .col-sm-7{
 	    height:180px;
     }
+    #title{
+    	font-size:20px !important;
+    }
 	#content{
-        height:100px;
+        height:80px;
     }
 }
 
@@ -176,6 +187,7 @@ div.jumbotron{
 
 #show{
 	text-decoration:none;
+	margin-top:20px;
 }
 
 #show a{
@@ -219,6 +231,10 @@ div.col-md-4{
 }
 #showContent{
 	height:100px;
+	/*width:200px;*/
+	/*display: block;*/
+	/*overflow: hidden;*/
+	/*text-overflow: ellipsis;*/
 }
 
 /*#search form{
