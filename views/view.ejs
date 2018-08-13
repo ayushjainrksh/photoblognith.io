@@ -8,6 +8,11 @@
 	            <div id="showTitle"><%=blog.title%></div>
 	            <div id="showDate"><!-- <span>BY <a href="#"><%=blog.author.username%></a></span> --><%=new Date(Number(blog.image.substring(24,37))).toString().substring(4,15).toUpperCase()%></div>
 		        <div id="showContent"><%=blog.description%></div>
+		        <div>
+		        	<form action="/blogs/<%=blog._id%>/delete?_method=DELETE" method="POST">
+				   	 <button>Delete</button>
+			    	</form>
+		        </div>
 		    </div>
 		</div>
 	</div>
