@@ -131,14 +131,9 @@ div.jumbotron{
 
 #content{
 	height:160px;
-
-	/*width:200px;*/
-	/*display: block;*/
 	overflow: hidden;
-	/*white-space: nowrap;*/
 	white-space: pre-wrap;
 	text-overflow: ellipsis;
-	/*margin-bottom:5px;*/
 }
 
 @media only screen and (max-width: 600px)
@@ -231,10 +226,33 @@ div.col-md-4{
 }
 #showContent{
 	height:100px;
-	/*width:200px;*/
-	/*display: block;*/
-	/*overflow: hidden;*/
-	/*text-overflow: ellipsis;*/
+}
+
+
+
+#showButtons{
+	text-decoration:none;
+	display:flex;
+	margin-top:20px;
+	justify-content: space-between;
+    /*margin:0;*/
+	/*float:left;*/
+}
+
+#showButtons #edit{
+	margin-top:10px;
+}
+#showButtons a,button{
+	text-decoration:none;
+	color:#e27d60; 
+	border:1px solid #e27d60;
+	padding:10px 40px;
+	border-radius:30px;
+}
+
+#showButtons a:hover, button:hover{
+	background:#e27d60;
+	color:white;
 }
 
 /*#search form{
