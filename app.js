@@ -118,12 +118,8 @@ app.post("/blogs", upload.single("uploaded"), isLoggedIn, function(req, res){
     });
 });
 
-
+//Find route for search bar
 app.get("/blogs/find",function(req, res){
-	// var name = req.body.search;
-	// console.log("Received");
-	// console.log(req.query.titleSearch);
-	
 	var arr=[];
     var found=0;
 	Blog.find({},function(err, foundBlog){
@@ -135,7 +131,6 @@ app.get("/blogs/find",function(req, res){
                 arr.push(blog.title);
             });
         }
-        console.log(arr);
         var i =0; 
         for(;i<arr.length;i++)
         {
@@ -151,38 +146,8 @@ app.get("/blogs/find",function(req, res){
         }
         if(i==arr.length)
          	res.redirect("/blogs");
-        	
-
 	});
-    // if(found==0)
-    //     {
-    //      	console.log("Not found");
-    //      	res.redirect("/blogs");
-    //     }
 });
-
-
-	// Blog.find({}, function(err, foundBlog){
-	// 	if(foundBlog)
-	// 		console.log(err);
-	// 	else{
-	// 		console.log(foundBlog);
- //            // arr.push(foundBlog.title);
-	// 	}
-	// });
- //    var query = {title : req.query.titleSearch};
- //    // console.log(req.body.titleSearch);
-	// Blog.find(query, function(err, foundBlog){
- //         if(foundBlog)
- //         {
- //            console.log(foundBlog);
- //            res.redirect("/blogs");
- //         }
- //         else
- //         {
- //         	console.log("Not found");
- //         }
-	// });
 
 
 //Show Route
@@ -321,16 +286,13 @@ function isAuth(req, res, next){
     }
 }
 
+//Compares two strings for match
 function stringMatch(one,two)
 {
 	one=one.toLowerCase();
 	two=two.toLowerCase();
 	var smaller = one.length<two.length?one:two;
     var count=0;
-    // one=one.split('').sort().join('');
-    // two=two.split('').sort().join('');
-    console.log(one+" "+two);
-    var temp;
     for(var i=0;i<smaller.length;i++)
     {
     	if(one[i]==two[i])
