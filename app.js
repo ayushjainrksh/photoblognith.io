@@ -125,24 +125,41 @@ app.get("/blogs/find",function(req, res){
 	// console.log(req.query.titleSearch);
 	
 	var arr=[];
+    var found=0;
 	Blog.find({},function(err, foundBlog){
         if(err)
             console.log(err);
         else
         {
-			// console.log("First:"+foundBlog[0]);
             foundBlog.forEach(function(blog){
-            	// console.log(blog.title);
                 arr.push(blog.title);
             });
         }
-        for(var i=0;i<arr.length;i++)
+        console.log(arr);
+        var i =0; 
+        for(;i<arr.length;i++)
         {
-        	console.log(stringMatch(arr[i],req.query.titleSearch));
+        	if(stringMatch(arr[i],req.query.titleSearch)>0)
+        	{
+        		var query = {title : arr[i]};
+				Blog.find(query, function(err, foundBlog){
+			        found=1;
+        	        res.render("home" ,{ blogs : foundBlog});
+				});
+				break;
+        	}
         }
-	    // console.log(arr);
+        if(i==arr.length)
+         	res.redirect("/blogs");
+        	
+
 	});
-    
+    // if(found==0)
+    //     {
+    //      	console.log("Not found");
+    //      	res.redirect("/blogs");
+    //     }
+});
 
 
 	// Blog.find({}, function(err, foundBlog){
@@ -166,7 +183,6 @@ app.get("/blogs/find",function(req, res){
  //         	console.log("Not found");
  //         }
 	// });
-});
 
 
 //Show Route
