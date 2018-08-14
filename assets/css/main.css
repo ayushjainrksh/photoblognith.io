@@ -224,9 +224,6 @@ div.col-md-4{
 	/*color:white;*/
 	text-align: center;
 }
-#showContent{
-	height:100px;
-}
 
 
 
@@ -235,25 +232,42 @@ div.col-md-4{
 	display:flex;
 	margin-top:20px;
 	justify-content: space-between;
-    /*margin:0;*/
-	/*float:left;*/
+	height:40px;
 }
 
-#showButtons #edit{
-	margin-top:10px;
+#showButtons button{
+	text-decoration:none;
+	border:none;
+	color:black;
+	background:white;
+	padding:10px 20px;
 }
-#showButtons a,button{
+
+#showButtons #edit button{
+	color:white;
+	background-color: #448bcd;
+	border-radius:15px;
+}
+
+#showButtons #delete button{
+    color:white;
+	background-color:#c0392b;
+	border-radius:15px;
+}
+
+
+/*#showButtons a,button{
 	text-decoration:none;
 	color:#e27d60; 
 	border:1px solid #e27d60;
 	padding:10px 40px;
 	border-radius:30px;
-}
-
+}*/
+/*
 #showButtons a:hover, button:hover{
 	background:#e27d60;
 	color:white;
-}
+}*/
 
 /*#search form{
 	font-size: 2vw;

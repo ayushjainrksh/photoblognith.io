@@ -6,10 +6,15 @@
 			<div class="col-md-8 showBox">
 				<img id="showImg" src="<%=blog.image.substring(6)%>">
                 <div id="showButtons">
-                    <div id="edit"><a href="/blogs/<%=blog._id%>/edit">Edit</a></div>
-	                <div>
+                    <!-- <div id="edit"><a href="/blogs/<%=blog._id%>/edit">Edit</a></div> -->
+	                <div id="edit">
+			        	<form action="/blogs/<%=blog._id%>/edit" method="GET">
+					   	    <button><i class="fas fa-edit"></i></button>
+				    	</form>
+			        </div>
+	                <div id="delete">
 			        	<form action="/blogs/<%=blog._id%>/delete?_method=DELETE" method="POST">
-					   	    <button>Delete</button>
+					   	    <button><i class="fas fa-trash-alt"></i></button>
 				    	</form>
 			        </div>	
                 </div>                
