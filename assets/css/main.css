@@ -228,31 +228,47 @@ div.col-md-4{
 
 
 #showButtons{
+	background:#e1e3e8;
 	text-decoration:none;
 	display:flex;
-	margin-top:20px;
+	padding-top:1em;
+	padding-bottom:1em;
 	justify-content: space-between;
-	height:40px;
+	height:5em;
 }
 
 #showButtons button{
 	text-decoration:none;
 	border:none;
-	color:black;
 	background:white;
-	padding:10px 20px;
+	padding:0.5em 1em;
 }
 
+
 #showButtons #edit button{
-	color:white;
-	background-color: #448bcd;
+	border:2px solid #448bcd;
+	color:#448bcd;
 	border-radius:15px;
+	margin-left:20px;
 }
 
 #showButtons #delete button{
-    color:white;
-	background-color:#c0392b;
+	border:2px solid #c0392b;
+    color:#c0392b;
 	border-radius:15px;
+	margin-right:20px;
+}
+
+#showButtons #delete button:hover{
+    color:white;
+    background-color:#c0392b;
+}
+
+#showButtons #edit button:hover
+{
+	color:white;
+	background-color:#448bcd;
+	/*background-color:yellow;*/
 }
 
 
