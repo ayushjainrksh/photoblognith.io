@@ -123,19 +123,43 @@ app.get("/blogs/find",function(req, res){
 	// var name = req.body.search;
 	// console.log("Received");
 	// console.log(req.query.titleSearch);
-    var query = {title : req.query.titleSearch};
-    // console.log(req.body.titleSearch);
-	Blog.find(query, function(err, foundBlog){
-         if(foundBlog)
-         {
-            console.log(foundBlog);
-            res.redirect("/blogs");
-         }
-         else
-         {
-         	console.log("Not found");
-         }
+	
+	var arr=[];
+	var i = 0;
+	Blog.find({},function(err, foundBlog){
+        if(err)
+            console.log(err);
+        else{
+			// console.log("First:"+foundBlog[0]);
+            arr.push(foundBlog[i].title);
+            i++;
+        }
 	});
+	console.log(arr);
+    
+
+
+	// Blog.find({}, function(err, foundBlog){
+	// 	if(foundBlog)
+	// 		console.log(err);
+	// 	else{
+	// 		console.log(foundBlog);
+ //            // arr.push(foundBlog.title);
+	// 	}
+	// });
+ //    var query = {title : req.query.titleSearch};
+ //    // console.log(req.body.titleSearch);
+	// Blog.find(query, function(err, foundBlog){
+ //         if(foundBlog)
+ //         {
+ //            console.log(foundBlog);
+ //            res.redirect("/blogs");
+ //         }
+ //         else
+ //         {
+ //         	console.log("Not found");
+ //         }
+	// });
 });
 
 
@@ -275,14 +299,14 @@ function isAuth(req, res, next){
     }
 }
 
-function stringMatch(String one,String two)
+function stringMatch(one,two)
 {
 	var smaller = one.length<two.length?one:two;
     var count=0;
     one.split('').sort().join('');
     two.split('').sort().join('');
     console.log(one+" "+two);
-    for(int i=0;i<smaller.length;i++)
+    for(var i=0;i<smaller.length;i++)
     {
     	if(one[i]==two[i])
     	{
