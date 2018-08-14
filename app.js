@@ -125,17 +125,23 @@ app.get("/blogs/find",function(req, res){
 	// console.log(req.query.titleSearch);
 	
 	var arr=[];
-	var i = 0;
 	Blog.find({},function(err, foundBlog){
         if(err)
             console.log(err);
-        else{
+        else
+        {
 			// console.log("First:"+foundBlog[0]);
-            arr.push(foundBlog[i].title);
-            i++;
+            foundBlog.forEach(function(blog){
+            	// console.log(blog.title);
+                arr.push(blog.title);
+            });
         }
+        for(var i=0;i<arr.length;i++)
+        {
+        	console.log(stringMatch(arr[i],req.query.titleSearch));
+        }
+	    // console.log(arr);
 	});
-	console.log(arr);
     
 
 
@@ -301,11 +307,14 @@ function isAuth(req, res, next){
 
 function stringMatch(one,two)
 {
+	one=one.toLowerCase();
+	two=two.toLowerCase();
 	var smaller = one.length<two.length?one:two;
     var count=0;
-    one.split('').sort().join('');
-    two.split('').sort().join('');
+    // one=one.split('').sort().join('');
+    // two=two.split('').sort().join('');
     console.log(one+" "+two);
+    var temp;
     for(var i=0;i<smaller.length;i++)
     {
     	if(one[i]==two[i])
@@ -314,12 +323,11 @@ function stringMatch(one,two)
     	}
     }
     if(count===smaller.length)
-    	return true;
+    	return count;
     else
-    	return false;
+    	return 0;
 }
 
-// return text.split('').sort().join('');
 
 app.listen(PORT, function(err){
    if(err)
