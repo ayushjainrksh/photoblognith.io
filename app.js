@@ -119,6 +119,26 @@ app.post("/blogs", upload.single("uploaded"), isLoggedIn, function(req, res){
 });
 
 
+app.get("/blogs/find",function(req, res){
+	// var name = req.body.search;
+	// console.log("Received");
+	// console.log(req.query.titleSearch);
+    var query = {title : req.query.titleSearch};
+    // console.log(req.body.titleSearch);
+	Blog.find(query, function(err, foundBlog){
+         if(foundBlog)
+         {
+            console.log(foundBlog);
+            res.redirect("/blogs");
+         }
+         else
+         {
+         	console.log("Not found");
+         }
+	});
+});
+
+
 //Show Route
 app.get("/blogs/:id", function(req, res){
     Blog.findById(req.params.id, function(err,foundBlog){
@@ -220,6 +240,11 @@ app.get("/logout", function(req, res){
     res.redirect("/blogs");
 });
 
+
+
+
+
+
 //Auth functions
 function isLoggedIn(req, res, next){
 	if(req.user)
@@ -249,6 +274,28 @@ function isAuth(req, res, next){
     	res.redirect("/login");
     }
 }
+
+function stringMatch(String one,String two)
+{
+	var smaller = one.length<two.length?one:two;
+    var count=0;
+    one.split('').sort().join('');
+    two.split('').sort().join('');
+    console.log(one+" "+two);
+    for(int i=0;i<smaller.length;i++)
+    {
+    	if(one[i]==two[i])
+    	{
+    		count++;
+    	}
+    }
+    if(count===smaller.length)
+    	return true;
+    else
+    	return false;
+}
+
+// return text.split('').sort().join('');
 
 app.listen(PORT, function(err){
    if(err)

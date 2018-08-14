@@ -15,16 +15,3 @@ active.forEach(function(ele){
     	ele.classList.remove("act");
 });
 
-// $(function() {
-
-//   var page = window.location.pathname;
-
-//   $('.nav li').filter(function(){
-//      return $(this).find('a').attr('href').indexOf(page) !== -1
-//   }).addClass('act');
-
-//   $(".nav a").on("click", function() {
-//     $(".nav").find(".act").removeClass("act");
-//     $(this).parent().addClass("act");
-//   });
-// });
