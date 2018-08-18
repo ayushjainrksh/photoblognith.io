@@ -134,6 +134,8 @@ div.jumbotron{
 	overflow: hidden;
 	white-space: pre-wrap;
 	text-overflow: ellipsis;
+	font-family: 'Montserrat', sans-serif;
+	
 }
 
 @media only screen and (max-width: 600px)
