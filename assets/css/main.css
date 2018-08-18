@@ -20,6 +20,8 @@ div.jumbotron{
     font-size:6vw;
     width:93%;
     float:left;
+    font-family: 'Bangers', cursive;
+
 }
 
 #head2{
@@ -30,6 +32,8 @@ div.jumbotron{
 	font-size:3vw;
 	float:right;
 	margin-top:3%;
+    font-family: 'Bangers', cursive;
+
 }
 
 #addIcon a{
