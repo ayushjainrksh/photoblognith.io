@@ -20,7 +20,7 @@
 			</div>
 		    <div class="col-md-4 showBox">
 	            <div id="showTitle"><%=blog.title%></div>
-	            <div id="showDate"><!-- <span>BY <a href="#"><%=blog.author.username%></a></span> --><%=new Date(Number(blog.image.substring(24,37))).toString().substring(4,15).toUpperCase()%></div>
+	            <div id="showDate"><span>BY <a href="#"><%=blog.author.username%></a></span> | <%=new Date(Number(blog.image.substring(24,37))).toString().substring(4,15).toUpperCase()%></div>
 		        <div id="showContent"><%=blog.description%></div>		        
 		    </div>
 		</div>
