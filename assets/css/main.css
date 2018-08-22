@@ -221,6 +221,8 @@ div.jumbotron{
 
 .thumbnail{
 	padding : 0 !important;
+	box-shadow: 5px 5px 8px #bcc3c4 !important;
+	border : 0 !important;
 }
 
 #showTitle{
@@ -228,8 +230,11 @@ div.jumbotron{
 	/*border-top-right-radius: 30px;		*/
 	/*background-color: #41b3a3;*/
 	/*color:white;*/
-	/*text-align:center;*/
+	text-align:center;
 	text-transform: uppercase;
+	text-shadow: 2px 2px 7px #139cb5;
+	color:teal;
+	font-family: "Titillium Web";
 	font-size: 3em;
 }
 #showImg{
