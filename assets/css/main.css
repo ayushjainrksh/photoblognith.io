@@ -235,8 +235,9 @@ div.jumbotron{
 #showImg{
     width:100%;
 }
-#showImg img{
-    margin : 0;
+hr{
+	margin-top:10px !important;
+	margin-bottom:5px !important;
 
 }
 #showDate{
@@ -261,15 +262,15 @@ div.jumbotron{
 }
 
 #showButtons{
-	background:#41b3a3;
+	/*background:#41b3a3;*/
 	text-decoration:none;
 	display:flex;
 	padding-top:1em;
 	padding-bottom:1em;
 	justify-content: space-between;
 	height:5em;
-	border-bottom-right-radius:30px;
-	border-bottom-left-radius:30px; 
+	/*border-bottom-right-radius:30px;*/
+	/*border-bottom-left-radius:30px; */
 
 }
 
