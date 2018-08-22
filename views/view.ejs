@@ -1,6 +1,21 @@
 <% include partials/header%>
 
-	<div class="container">
+    
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-8">
+    			<div class="thumbnail">
+		            <div id="showTitle"><%=blog.title%></div>
+				    <img id="showImg" src="<%=blog.image.substring(6)%>">
+			        <div id="showContent"><%=blog.description%></div>		      
+		            <div id="showDate"><span>BY <a href="#"><%=blog.author.username%></a></span> | <%=new Date(Number(blog.image.substring(24,37))).toString().substring(4,15).toUpperCase()%></div>
+			          
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+	<!-- <div class="container">
 		<div class="row">
 			<div class="col-md-8 showBox">
 			    <div id="empty"></div>
@@ -24,6 +39,6 @@
 		        <div id="showContent"><%=blog.description%></div>		        
 		    </div>
 		</div>
-	</div>
+	</div> -->
 
 <% include partials/footer%> 
