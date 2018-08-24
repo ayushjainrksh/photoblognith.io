@@ -112,6 +112,28 @@ div.jumbotron{
     color:teal !important;
 }
 
+#myNavbar ul li:hover{
+	animation: navbarAnimation 0.3s 0s ease-in forwards;
+}
+
+@keyframes navbarAnimation
+{
+	0%{
+		box-shadow: none;
+	}
+	100%{
+	   box-shadow: 0 4px teal , 0 -4px teal;
+	}
+}
+
+#navUser:hover a
+{ 
+	color:white !important;
+}
+
+
+
+
 #display{
 	width:100%;
     margin-bottom:20px;
