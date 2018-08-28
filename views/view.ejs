@@ -1,6 +1,5 @@
 <% include partials/header%>
 
-    
     <div class="container">
     	<div class="row">
     		<div class="col-md-8">
@@ -10,6 +9,7 @@
 			        <hr>
 			        <div id="showContent"><%=blog.description%></div>		      
 			        <hr>
+			        <%if(currentUser && (currentUser.username === blog.author.username)){%>
 			        <div id="showButtons">
 		                <div id="edit">
 				        	<form action="/blogs/<%=blog._id%>/edit" method="GET">
@@ -22,37 +22,12 @@
 					    	</form>
 				        </div>	
                     </div>
+                    <%}%>
 		            <div id="showDate"><span>Created by <a href="#"><%=blog.author.username%></a></span> | <%=new Date(Number(blog.image.substring(24,37))).toString().substring(4,15).toUpperCase()%></div>
 
     			</div>
     		</div>
     	</div>
     </div>
-
-	<!-- <div class="container">
-		<div class="row">
-			<div class="col-md-8 showBox">
-			    <div id="empty"></div>
-				<img id="showImg" src="<%=blog.image.substring(6)%>">
-                <div id="showButtons">
-	                <div id="edit">
-			        	<form action="/blogs/<%=blog._id%>/edit" method="GET">
-					   	    <button><i class="fas fa-edit"></i></button>
-				    	</form>
-			        </div>
-	                <div id="delete">
-			        	<form action="/blogs/<%=blog._id%>/delete?_method=DELETE" method="POST">
-					   	    <button><i class="fas fa-trash-alt"></i></button>
-				    	</form>
-			        </div>	
-                </div>                
-			</div>
-		    <div class="col-md-4 showBox">
-	            <div id="showTitle"><%=blog.title%></div>
-	            <div id="showDate"><span>BY <a href="#"><%=blog.author.username%></a></span> | <%=new Date(Number(blog.image.substring(24,37))).toString().substring(4,15).toUpperCase()%></div>
-		        <div id="showContent"><%=blog.description%></div>		        
-		    </div>
-		</div>
-	</div> -->
 
 <% include partials/footer%> 
