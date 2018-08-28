@@ -1,6 +1,5 @@
 body{
 	margin:0;
-	/*background-color: #e27d60;*/
 }
 
 div.jumbotron{
@@ -63,12 +62,9 @@ div.jumbotron{
 
 .navbar{
 	border:none !important;
-	/*border-top: 4px solid black !important;*/
-	/*border-bottom: 4px solid black !important;*/
 }
 
 .navbar-inverse{
-    /*background: #a1582f !important;*/
     background: #41b3a3 !important;
     color: white !important;
 }
@@ -141,9 +137,10 @@ div.jumbotron{
 
 #image{
 	padding:0;
-	background:teal;
 	margin-bottom:5px;
+	background:teal;
 }
+
 
 #image img{
 	margin:0;
@@ -183,8 +180,18 @@ div.jumbotron{
 }
 
 #image img:hover{
-	opacity:0.5;
+    animation: imageBack 0.4s 0s ease-in forwards;
 }
+
+@keyframes imageBack{
+	0%{
+
+	}
+	100%{
+	    opacity:0.6;
+	}
+}
+
 
 #title{
 	border-top: 1px solid #e2e2e2;
@@ -256,17 +263,12 @@ hr{
 
 }
 #showDate{
-	/*background-color: #41b3a3;*/
 	text-align: center;
 }
 #showContent{
 	text-align: justify;
-	/*background-color: #41b3a3;*/
     padding-left: 5px;
     padding-right: 5px;
-	/*padding-bottom: 20px;*/
-	/*border-bottom-left-radius: 30px;	*/
-	/*border-bottom-right-radius: 30px;			*/
 }
 
 @media only screen and (max-width: 600px)
@@ -277,15 +279,12 @@ hr{
 }
 
 #showButtons{
-	/*background:#41b3a3;*/
 	text-decoration:none;
 	display:flex;
 	padding-top:1em;
 	padding-bottom:1em;
 	justify-content: space-between;
 	height:5em;
-	/*border-bottom-right-radius:30px;*/
-	/*border-bottom-left-radius:30px; */
 
 }
 
