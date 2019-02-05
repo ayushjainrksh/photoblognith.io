@@ -1,6 +1,6 @@
 var express    = require("express"),
     app        = express(),
-    PORT       = 8000||process.env.PORT;
+    PORT       = 5000||process.env.PORT;
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
     multer     = require("multer"),
@@ -163,10 +163,11 @@ app.get("/blogs/:id", function(req, res){
 // Edit Route
 app.get("/blogs/:id/edit",isAuth, function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
-        if(err)
+		if(err)
+			// console.log(err);
         	res.redirect("/blogs");
         else
-            res.render("edit", {blog:foundBlog}); 
+            res.render("edit", {blog:foundBlog});
     });
 });
 
